@@ -1,0 +1,7 @@
+Til að setja gögn inn í gangagrunn : 
+drop.sql = Eyðir gagnagrunni - DROP TABLE IF EXIST
+insert.sql = Setja gögn inn í gagnagrunn
+schema.sql = Create table skipanir
+
+Setup.js
+
