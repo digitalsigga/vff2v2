@@ -59,7 +59,7 @@ export async function getGames() {
   const result = await query(q);
 
   const games = [];
-  if (result && (result.rows?.length ?? 0) > 0) {
+  if (result && result.rows.length > 0) {
     for (const row of result.rows) {
       const game = {
         date: row.date,
@@ -74,9 +74,8 @@ export async function getGames() {
       };
       games.push(game);
     }
-
-    return games;
   }
+  return games;
 }
 
 export function insertGame(home_name, home_score, away_name, away_score) {
@@ -125,7 +124,6 @@ export async function getTeams() {
       };
       teams.push(team);
     }
-
-    return teams;
   }
+  return teams;
 }
