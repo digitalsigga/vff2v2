@@ -16,7 +16,6 @@ INSERT INTO teams (name) VALUES ('Fljótu fæ');
 INSERT INTO teams (name) VALUES ('Bolt');
 INSERT INTO teams (name) VALUES ('aliðið');
 
+INSERT INTO users (name, username, password, admin) VALUES ('Sigurður', 'siggi', '123', true);
 
--- INSERT INTO users (name, username, password, admin) VALUES ('aliðið');
-
-INSERT INTO games (name) VALUES ('aliðið');
+INSERT INTO games (home_id, home_score, away_id, away_score) VALUES (17, 2, 16, 5);

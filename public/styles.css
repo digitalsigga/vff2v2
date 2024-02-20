@@ -1,3 +1,108 @@
+/* Colors : 
+Terracotta : #B37A64
+Black Olive : #72655D
+Khaki : #B2A598
+Platinum : #D6D1C9
+Sand: #F2EEE9 */
+
 html {
-  background-color: #f5f5f5;
+  /* display: flex; */
+  background-color: #F2EEE9;
+  font-family: 'Times New Roman', Times, serif;
+  color: #352e29
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body > main {
+  flex: 1;
+  /* This makes the main content area grow to fill the space, pushing the footer down */
+}
+
+h1 {
+  font-family: Palatino, 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', Georgia, serif;
+  font-size: 3em;
+  font-weight: bold;
+  color: #D6D1C9;
+  text-transform: uppercase;
+  letter-spacing: 2.8px;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #72655D;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #72655D;
+  color: #D6D1C9;
+}
+
+
+
+nav {
+  display: flex;
+  flex-direction: row; /* Adjust this to row for horizontal layout */
+  justify-content: space-around; /* This will spread items horizontally */
+  align-items: center; /* This vertically centers items if they have different heights */
+  background-color: #B37A64;
+  color: white;
+}
+
+nav ul {
+  display: flex;
+  width: 100%; /* Use the full width of the nav */
+  justify-content: space-around; /* Spread the list items across the nav */
+  padding: 0;
+  list-style: none; /* Remove default list styling */
+}
+
+nav li {
+  font-family: Palatino, 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', Georgia, serif;
+  font-size: 1em;
+  font-weight: bold;
+  color: #D6D1C9;
+  text-transform: uppercase;
+  letter-spacing: 2.8px;
+}
+
+nav ul, nav ol {
+  display: flex;
+    /* This ensures that the children (li) are laid out horizontally */
+  padding: 1; /* Removes the default padding */
+  list-style: none; /* Removes the default list item markers */
+}
+
+nav li {
+  margin-right: 10px; /* Adds some space between the list items */
+}
+
+nav a {
+  text-decoration: none; /* Removes the underline from links */
+  color: #D6D1C9; /* Sets the text color to black; change this to any color you prefer */
+  padding: 10px; /* Optional: adds some padding around the links for better clickability and visual spacing */
+  transition: color 0.3s; /* Optional: adds a smooth color transition effect on hover */
+}
+
+nav a:hover {
+  color: #555555; /* Changes the link color when hovered over; adjust the color as desired */
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

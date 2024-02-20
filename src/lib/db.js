@@ -1,6 +1,8 @@
 import pg from 'pg';
 import { environment } from './environment.js';
 import { logger } from './logger.js';
+import { readFile } from 'fs/promises';
+
 
 const env = environment(process.env, logger);
 
@@ -86,4 +88,44 @@ export function insertGame(home_name, home_score, away_name, away_score) {
 
 export async function end() {
   await pool.end();
+}
+
+// reads from ../sql/schema.sql
+export function createSchema() {
+  return readFile('./sql/schema.sql')
+    .then((data) => query(data.toString('utf-8')))
+    .catch((err) => {
+      console.error('Error creating schema', err);
+      return false;
+    });
+}
+// reads from ../sql/drop.sql
+export async function dropSchema() {
+  const q = await readFile('./sql/drop.sql')
+    .then((data) => data.toString('utf-8'))
+    .catch((err) => {
+      console.error('Error dropping schema', err);
+    });
+
+    console.log("q"+q);
+
+  return query(q);
+}
+
+export async function getTeams() {
+  const q = 'select * from teams';
+  const result = await query(q);
+
+  const teams = [];
+  if (result && (result.rows?.length ?? 0) > 0) {
+    for (const row of result.rows) {
+      const team = {
+        id: row.id,
+        name: row.name,
+      };
+      teams.push(team);
+    }
+
+    return teams;
+  }
 }

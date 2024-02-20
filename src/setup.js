@@ -1,4 +1,4 @@
-import { query } from './lib/db.js';
+
 
 async function main() {
   const games = await query('select * from games');
