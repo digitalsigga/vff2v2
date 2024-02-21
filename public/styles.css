@@ -128,8 +128,70 @@ table {
   width: auto; /* Adjust this to 'auto' or remove it to allow 'max-width' to control the width */
   max-width: 90%; /* Adjust this percentage or use a fixed width like 800px */
   text-align: center;
-  margin: 20px auto; This centers the table horizontally in its container
+  margin: 20px auto; 
   font-family: Helvetica, sans-serif;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Align items to the start to make labels start at the same place */
+  padding: 0 20px;
+  margin: 50px auto; /* Center the form on the page */
+  width: 100%; /* Adjust width as needed */
+  max-width: 500px; /* Maximum form width, adjust as needed */
+  margin: 60px auto; 
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+  color: #555555;
+}
+
+label {
+  margin: 5px;
+}
+
+button {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  padding: 10px;
+  background-color: #B37A64;
+  color: #D6D1C9;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+.form-item {
+  display: flex;
+  justify-content: space-between; /* Aligns the label on the left and the input on the right */
+  align-items: center;
+  margin: 50px; /* Space between form items */
+  width: 100%; /* Ensures container fills the form */
+  padding: 20px;
+}
+
+form .button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+form .button-container button {
+  margin: 0 5px; /* Adjust based on design */
+  /* Other button styles */
+}
+
+input, select, textarea {
+  flex-grow: 1; /* Allows inputs to grow and fill available space */
+  margin-left: 10px; /* Ensures space between label and input */
+  background-color: #D6D1C9;
+  margin: 5px;
 }
 
 thead {
@@ -142,3 +204,4 @@ th, td {
   /* border-color: #B2A598; */
   /* border-style: solid; */
 }
+
