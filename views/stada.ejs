@@ -1,9 +1,28 @@
 <%- include('header') -%>
 
-<section>
-    <h2>Staðan í deildinni</h2>
-    <p>1 : 1 fyrir besta liðinu yo!</p>
-  </section>
+    <section>
+        <h2>Staðan í deildinni</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Sæti í deildinni</th>
+                    <th>Lið</th>
+                    <th>Stig</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% teams.forEach(function(team, index) { %>
+                  <tr>
+                    <td><%= index + 1 %></td> <!-- This will display the position based on array index -->
+                    <td><%= team.name %></td>
+                    <td><%= team.score %></td>
+                  </tr>
+                <% }); %>
+              </tbody>
+        </table>
+    </section>      
 
+</main>
+</body>
 
 <%- include('footer') -%>

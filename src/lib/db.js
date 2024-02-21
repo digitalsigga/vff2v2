@@ -91,7 +91,7 @@ export async function end() {
 
 // reads from ../sql/schema.sql
 export function createSchema() {
-  return readFile('./sql/schema.sql')
+  return readFile('./src/sql/schema.sql')
     .then((data) => query(data.toString('utf-8')))
     .catch((err) => {
       console.error('Error creating schema', err);
@@ -100,7 +100,7 @@ export function createSchema() {
 }
 // reads from ../sql/drop.sql
 export async function dropSchema() {
-  const q = await readFile('./sql/drop.sql')
+  const q = await readFile('./src/sql/drop.sql')
     .then((data) => data.toString('utf-8'))
     .catch((err) => {
       console.error('Error dropping schema', err);

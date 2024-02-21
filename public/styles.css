@@ -19,6 +19,12 @@ html, body {
   flex-direction: column;
 }
 
+body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 body > main {
   flex: 1;
   /* This makes the main content area grow to fill the space, pushing the footer down */
@@ -105,4 +111,34 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0 20px;
+}
+
+table {
+  border: 6px solid #B37A64;
+  background-color: #B2A598;
+  width: 100%;
+  text-align: center;
+  margin: 10px;
+}
+
+table {
+  border: 6px solid #B2A598;
+  background-color: #F2EEE9;
+  width: auto; /* Adjust this to 'auto' or remove it to allow 'max-width' to control the width */
+  max-width: 90%; /* Adjust this percentage or use a fixed width like 800px */
+  text-align: center;
+  margin: 20px auto; This centers the table horizontally in its container
+  font-family: Helvetica, sans-serif;
+}
+
+thead {
+  color: #D6D1C9;
+}
+
+th, td {
+  color: #352e29;
+  background-color: #D6D1C9;
+  /* border-color: #B2A598; */
+  /* border-style: solid; */
 }

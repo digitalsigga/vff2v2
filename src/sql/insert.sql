@@ -14,7 +14,7 @@ INSERT INTO teams (name) VALUES ('Svindlarar');
 
 INSERT INTO users (name, username, password, admin) VALUES ('Sigurður', 'siggi', '123', true);
 
-INSERT INTO games (home, home_score, away, away_score) VALUES (17, 2, 16, 5);
+INSERT INTO games (home, home_score, away, away_score) VALUES (1, 2, 6, 5);
 -- Game 2: Hraðaliðið vs Fljótu fæturnir
 INSERT INTO games (home, home_score, away, away_score) VALUES (2, 3, 3, 1);
 
@@ -31,7 +31,7 @@ INSERT INTO games (home, home_score, away, away_score) VALUES (8, 5, 9, 3);
 INSERT INTO games (home, home_score, away, away_score) VALUES (10, 1, 11, 1);
 
 -- Game 7: Risaeðlurnar vs Svindlarar
-INSERT INTO games (home, home_score, away, away_score) VALUES (13, 4, 14, 4);
+INSERT INTO games (home, home_score, away, away_score) VALUES (13, 4, 4, 4);
 
 -- Game 8: Skotföstu kempurnar vs Risaeðlurnar
 INSERT INTO games (home, home_score, away, away_score) VALUES (1, 3, 13, 2);

@@ -2,8 +2,6 @@
 
 async function main() {
   const games = await query('select * from games');
-
-  console.log("gamrs"+games);
 }
 
 main().catch((e) => console.error(e));
@@ -30,7 +28,7 @@ async function create() {
     console.info('schema not created');
   }
 
-  const data = await readFile('./sql/insert.sql');
+  const data = await readFile('./src/sql/insert.sql');
   const insert = await query(data.toString('utf-8'));
 
   if (insert) {
