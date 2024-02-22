@@ -19,24 +19,35 @@ pool.on('error', (err) => {
   process.exit(-1);
 });
 
+// export async function query(q, values = []) {
+//   let client;
+//   try {
+//     client = await pool.connect();
+//     const result = await client.query(q, values);
+//     return result;
+//   } catch (e) {
+//     console.error('unable to get client from pool', e);
+//     return null;
+//   }  finally {
+//     if (client) {
+//       client.release();
+//     }
+//   }
+// }
+
 export async function query(q, values = []) {
   let client;
   try {
     client = await pool.connect();
-  } catch (e) {
-    console.error('unable to get client from pool', e);
-    return null;
-  }
-
-  try {
     const result = await client.query(q, values);
-    return result;
+    return result; // Return the full result object
   } catch (e) {
-    console.error('unable to query', e);
-    console.info(q, values);
-    return null;
+    console.error('Query failed', e);
+    throw e; // Throw the error to be caught by the caller
   } finally {
-    client.release();
+    if (client) {
+      client.release();
+    }
   }
 }
 
@@ -58,11 +69,15 @@ export async function getGames() {
 
   const result = await query(q);
 
+
   const games = [];
   if (result && result.rows.length > 0) {
     for (const row of result.rows) {
+      const options = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' };
       const game = {
-        date: row.date,
+        date: row.date.toLocaleDateString('en-US', options),
+        dateUnformatted: row.date,
+        // date: row.date,
         home: {
           name: row.home_name,
           score: row.home_score,
@@ -78,11 +93,19 @@ export async function getGames() {
   return games;
 }
 
-export function insertGame(home_name, home_score, away_name, away_score) {
-  const q =
-    'insert into games (home, away, home_score, away_score) values ($1, $2, $3, $4);';
+export async function insertGame(home, homeScore, away, awayScore) {
+  const insertQuery = `
+    INSERT INTO games (home, away, home_score, away_score)
+    VALUES ($1, $2, $3, $4)
+  `;
 
-  const result = query(q, [home_name, home_score, away_name, away_score]);
+  try {
+    const { rows } = await query(insertQuery, [home, homeScore, away, awayScore]);
+    return rows[0]; // Assuming you're interested in the inserted row's data
+  } catch (error) {
+    console.error('Error inserting game:', error);
+    throw new Error('Game insertion failed');
+  }
 }
 
 export async function end() {
@@ -112,7 +135,7 @@ export async function dropSchema() {
 }
 
 export async function getTeams() {
-  const q = 'select * from teams';
+  const q = 'SELECT id, name FROM teams ORDER BY name';
   const result = await query(q);
 
   const teams = [];

@@ -9,7 +9,8 @@ import { handler404, handlerError } from './lib/handlers.js';
 import { logger } from './lib/logger.js';
 import { adminRouter } from './routes/admin-routes.js';
 import { indexRouter } from './routes/index-routes.js';
-
+import { userRouter } from './routes/user-routes.js';
+ 
 import { comparePasswords, findById, findByUsername } from './lib/users.js';
 
 const env = environment(process.env, logger);
@@ -82,6 +83,7 @@ passport.deserializeUser(async (id, done) => {
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use('/', userRouter);
 app.use('/', indexRouter);
 app.use('/', adminRouter);
 app.use(express.static(join(path, '../public')));

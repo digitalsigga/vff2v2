@@ -205,3 +205,12 @@ th, td {
   /* border-style: solid; */
 }
 
+img {
+  border: 6px solid #B2A598;
+  background-color: #F2EEE9;
+  width: auto; /* Adjust this to 'auto' or remove it to allow 'max-width' to control the width */
+  max-width: 90%; /* Adjust this percentage or use a fixed width like 800px */
+  text-align: center;
+  margin: 20px auto; 
+}
+

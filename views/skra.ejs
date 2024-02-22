@@ -1,25 +1,28 @@
-<%- include('header') -%>
 
-<h1>Seinustu leikir</h1>
 
-<form method="post" action="/skra">
-  <div>
-    <label for="home_name">Heima lið</label>
-    <input type="text" id="home_name" name="home_name">
-  </div>
-  <div>
-    <label for="home_score">Heima skor</label>
-    <input type="text" id="home_score" name="home_score">
-  </div>
-  <div>
-    <label for="away_name">Úti lið</label>
-    <input type="text" id="away_name" name="away_name">
-  </div>
-  <div>
-    <label for="away_score">Úti lið skor</label>
-    <input type="text" id="away_score" name="away_score">
-  </div>
-  <button>Skrá</button>
+<form action="/skra" method="post">
+  <label for="home">Heimalið (Home Team):</label>
+  <select name="home" id="home">
+    <% teams.forEach(team => { %>
+      <option value="<%= team.id %>"><%= team.name %></option>
+    <% }) %>
+  </select>
+  <label for="home_score">Stig</label>
+  <input type="number" id="home_score" name="home_score" min="0">
+
+  <label for="away">Gestalið (Away Team):</label>
+  <select name="away" id="away">
+    <% teams.forEach(team => { %>
+      <option value="<%= team.id %>"><%= team.name %></option>
+    <% }) %>
+  </select>
+  <label for="away_score">Stig</label>
+  <input type="number" id="away_score" name="away_score" min="0">
+
+  <button type="submit">Skrá leik</button>
 </form>
 
-<%- include('footer') -%>
+
+</main>
+</body>
+

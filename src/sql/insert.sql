@@ -13,6 +13,7 @@ INSERT INTO teams (name) VALUES ('Risaeðlurnar');
 INSERT INTO teams (name) VALUES ('Svindlarar');
 
 INSERT INTO users (name, username, password, admin) VALUES ('Sigurður', 'siggi', '123', true);
+-- INSERT INTO users (name, username, password, admin) VALUES ('Sigríður', 'sigga', '123', true);
 
 INSERT INTO games (home, home_score, away, away_score) VALUES (1, 2, 6, 5);
 -- Game 2: Hraðaliðið vs Fljótu fæturnir

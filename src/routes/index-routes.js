@@ -26,7 +26,7 @@ async function leikirRoute(req, res) {
     return res.render('leikir', {
       teams,
       title: 'Leikir',
-      time: new Date().toISOString(),
+      time: new Date().toDateString(),
       games: games // Passing games data to the template
     });
   } catch (error) {
@@ -70,7 +70,7 @@ async function stadaRoute(req, res) {
     return res.render('stada', {
       teams: sortedTeams,
       title: 'Staða',
-      time: new Date().toISOString(),
+      time: new Date().toDateString(),
     });
 
   } catch (error) {
