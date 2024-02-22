@@ -71,7 +71,8 @@ async function skraRouteInsert(req, res, next) {
 
   try {
     // Attempt to insert the game into the database
-    await insertGame(home, homeScore, away, awayScore);
+    const temp = await insertGame(home, homeScore, away, awayScore);
+    console.table(temp)
     res.redirect('/leikir'); // Adjust this redirect to where you want the user to go after insertion
   } catch (error) {
     console.error('Error inserting game:', error);

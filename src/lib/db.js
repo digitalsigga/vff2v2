@@ -65,6 +65,7 @@ export async function getGames() {
       teams AS home_team ON home_team.id = games.home
     LEFT JOIN
       teams AS away_team ON away_team.id = games.away
+    ORDER BY date DESC
   `;
 
   const result = await query(q);
@@ -95,12 +96,14 @@ export async function getGames() {
 
 export async function insertGame(home, homeScore, away, awayScore) {
   const insertQuery = `
-    INSERT INTO games (home, away, home_score, away_score)
+    INSERT INTO games (home, home_score, away, away_score)
     VALUES ($1, $2, $3, $4)
+    RETURNING *
   `;
 
   try {
     const { rows } = await query(insertQuery, [home, homeScore, away, awayScore]);
+    console.table(rows)
     return rows[0]; // Assuming you're interested in the inserted row's data
   } catch (error) {
     console.error('Error inserting game:', error);
